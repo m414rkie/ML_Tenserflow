@@ -79,6 +79,9 @@ model.compile(optimizer='adam',loss=loss_fn,metrics=['accuracy'])
 # epochs is number of times to run through data set
 model.fit(x_train,y_train, epochs=5, validation_split=0.1)
 
+# save model
+model.save('./models/mnist')
+
 # show training and validation accuracies
 # loss refers to a regression or classification error, a larger number is bad
 # a typical example would be the MSE or quadratic loss
@@ -123,3 +126,16 @@ for i, im in enumerate(ims):
     plt.title("Prediction: {}\n Actual: {}".format(prediction.argmax(),y_test[im]))
 
 pre.savefig("pred.jpg")
+
+# recover and check model
+saved_model = tf.keras.models.load_model("./models/mnist")
+pre = plt.figure(5)
+ims = np.random.randint(1,500,9)
+for i, im in enumerate(ims):
+    prediction = saved_model.predict(x_test[im].reshape(1,p_rows,p_cols,1))
+    plt.subplot(3,3,i+1)
+    plt.tight_layout()
+    plt.imshow(x_test[im],cmap='gray',interpolation='none')
+    plt.title("Prediction: {}\n Actual: {}".format(prediction.argmax(),y_test[im]))
+
+pre.savefig("saved_pred.jpg")
