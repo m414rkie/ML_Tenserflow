@@ -4,7 +4,7 @@
 
 import tensorflow as tf
 from matplotlib import pyplot as plt
-from PIL import Image
+import numpy as np
 
 # keras is a high-level API for tensorflow.
 # mnist is a training data set consisting of 70k grayscale images of handwritten
@@ -31,7 +31,6 @@ fig.savefig("data.jpg")
 # number of pixels per row, column. Assumes consistent size
 img = x_train[1]
 p_rows, p_cols = img.shape
-
 
 # sequential model appropriate for plain stacks of layers, each layer 1 input
 # and one output. not appropriate for MIMO, layer sharing, non-linear
@@ -94,6 +93,7 @@ plt.xlabel('Epochs')
 plt.ylabel('Loss')
 plt.legend()
 lss.savefig("loss.jpg")
+# accuracy plot
 acc = model.history.history['accuracy']
 val_acc = model.history.history['val_accuracy']
 acu = plt.figure(3)
@@ -110,13 +110,16 @@ acu.savefig("acc.jpg")
 model.evaluate(x_test, y_test, verbose=2)
 # wrap model with softmax and makes a model that returns a probability
 probability_model = tf.keras.Sequential([model,tf.keras.layers.Softmax()])
-#
 probability_model(x_test[:5])
 
-# which one to predict
-im = 43
-prediction = model.predict(x_test[im].reshape(1,p_rows,p_cols,1))
+# some predictions
 pre = plt.figure(4)
-plt.imshow(x_test[im],cmap='gray',interpolation='none')
-plt.title("Prediction: {}\n Actual: {}".format(prediction.argmax(),y_test[im]))
+ims = np.random.randint(1,500,9)
+for i, im in enumerate(ims):
+    prediction = model.predict(x_test[im].reshape(1,p_rows,p_cols,1))
+    plt.subplot(3,3,i+1)
+    plt.tight_layout()
+    plt.imshow(x_test[im],cmap='gray',interpolation='none')
+    plt.title("Prediction: {}\n Actual: {}".format(prediction.argmax(),y_test[im]))
+
 pre.savefig("pred.jpg")
