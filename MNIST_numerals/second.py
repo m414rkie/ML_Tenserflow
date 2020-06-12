@@ -1,5 +1,7 @@
 #!usr/bin/python3
 # First introductory tutorial from tensorflow.org
+
+# Jon Parsons
 # 5/29/20
 
 import tensorflow as tf
@@ -57,7 +59,6 @@ model = tf.keras.models.Sequential([tf.keras.layers.Flatten(input_shape=(p_rows,
 model.summary()
 
 predictions = model(x_train[:1]).numpy()
-predictions
 
 # softmax takes array and returns array of same size zero except where largest
 # value was where 1 is now
