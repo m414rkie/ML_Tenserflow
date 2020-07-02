@@ -3,3 +3,8 @@
 *.dat
 *.pdf
 *.png
+/*/Save*/
+*data*
+*saved*
+*variables*
+*cache*
