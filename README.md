@@ -9,7 +9,7 @@ Repository is divided into three main folders. *Basic* holds the introductory tu
 
 ## Contents
 
-- [Basic](#basic)
+- [Basics](#basics)
   - [Install Check](#install_check)  
   - [MNIST Numerals](#mnist_numerals)  
   - [MNIST IMDB](#mnist_imdb)  
@@ -18,11 +18,17 @@ Repository is divided into three main folders. *Basic* holds the introductory tu
   - [Over/Under Fit](#overunder_fit)
   - [Save and Load](#save_n_load)
   - [HyperTune](#hypertune)
+  - [MNIST Fashion](#mnist_fashion)
+- [Data](#data)
+  - [CSV](#csv)
+  - [Images](#images)
+  - [Numpy](#numpy)
+  - [Pandas](#pandas_frame)
 
 ---
-## Basic
+## Basics
 
-### Install_check
+#### Install_check
 
 A short code that verifies installation of Tensorflow and required libraries.
 
@@ -80,7 +86,7 @@ The fifth tutorial, found [here](https://www.tensorflow.org/tutorials/keras/over
   
 #### Save_N_Load
 
-The fifth tutorial, found [here](https://www.tensorflow.org/tutorials/keras/save_and_load). This tutorial informs the user how to save and load the trained model including checkpoints created during training. Uses the MNIST numerals dataset.
+The sixth tutorial, found [here](https://www.tensorflow.org/tutorials/keras/save_and_load). This tutorial informs the user how to save and load the trained model including checkpoints created during training. Uses the MNIST numerals dataset.
 
 **Contains:**
 * save_load.py
@@ -89,13 +95,57 @@ The fifth tutorial, found [here](https://www.tensorflow.org/tutorials/keras/save
   
 #### HyperTune
 
-The sixth tutorial, found [here](https://www.tensorflow.org/tutorials/keras/keras_tuner). This tutorial is about how the tune the hyperparameters using inbuilt tuners for both number of neurons and learning rate. Uses the MNIST fashion dataset.
+The seventh tutorial, found [here](https://www.tensorflow.org/tutorials/keras/keras_tuner). This tutorial is about how the tune the hyperparameters using inbuilt tuners for both number of neurons and learning rate. Uses the MNIST fashion dataset.
 
 **Contains:**
 * HYPER.py
   * Inputs: None
   * Outputs: None
 
----
+#### MNIST_fashion
 
+Tutorial on basic image classification, found [here](https://www.tensorflow.org/tutorials/keras/classification). Uses the MNIST fashion dataset.
+
+**Contains:**
+* mnist_fash.py
+  * Inputs: None
+  * Outputs: jpg images of plots showing accuracy and loss during training. Some images of the dataset, as well as predictions.
+
+---
+## Data
+
+#### CSV
+
+A tutorial on using CSV data, found [here](https://www.tensorflow.org/tutorials/load_data/csv). Uses the Titanic passenger list to predict survival.
+
+**Contains:**
+* csv_manipulate.py
+  * Inputs: None
+  * Outputs: None
+ 
+#### Images
+
+A tutorial on loading and preprocessing image date, found [here](https://www.tensorflow.org/tutorials/load_data/images). Uses a dataset of flowers from Google API's, 'flower_photos'.
+
+**Contains:**
+* images.py
+  * Inputs: None
+  * Outputs: Several images of flowers, including predictions. Plots of training accuracy and loss.
   
+#### Numpy
+
+A tutorial on loading data stored in numpy arrays, found [here](https://www.tensorflow.org/tutorials/load_data/numpy). Uses the MNIST numerals dataset.
+
+**Contains:**
+* numpy_load.py
+  * Inputs: None
+  * Outputs: Several images of numerals, including predictions. Plots of training accuracy and loss.
+  
+#### Pandas_frame
+
+A tutorial on loading data stored in Pandas dataframes, found [here](https://www.tensorflow.org/tutorials/load_data/pandas_dataframe). Uses a dataset from the Clevelend Clinic Foundation for Heart Disease. Predicts whether a patient has heart disese.
+
+**Contains:**
+* pandas_frame.py
+  * Inputs: None
+  * Outputs: None
